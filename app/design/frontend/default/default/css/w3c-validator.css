@@ -1,0 +1,36 @@
+.w3c-validator{width: 90%; margin: 0 auto; border: 1px solid #aaa;background-color:#fff;}
+.w3c-validator h2{color: #fff; background: #55B05A; text-indent: 10px; width: 100%;line-height: 28px; margin: 0;}
+.w3c-validator h2.invalid{background: #D23D24 !important;}
+.w3c-validator .shortcut{float: right; margin-right: 20px;}
+.w3c-summary{width: 100%; border-collapse:collapse;}
+.w3c-summary tr{padding: 5px 0; line-height: 30px;}
+.w3c-summary th{width: 33%; text-align: right; padding-right: 15px; font-weight: bold; background: #ddd; border-bottom: 1px solid #ccc ;}
+.w3c-summary td{padding-left: 15px; border-bottom: 1px solid #ccc ;}
+.w3c-summary td.valid{color: #55B05A;}
+.w3c-summary td.invalid{color: #D23D24;}
+
+ .w3c-validator h2.w3c-error{color: #D23D24; font-size: 16px; background: none; text-decoration: none; border-bottom: 1px dotted #AAAA77;}
+
+.w3c-errors {margin: 15px;}
+.w3c-errors .w3c-error{padding: 10px; border: 1px solid #ddd; border-bottom: none;}
+.w3c-errors .w3c-error.last{border: 1px solid #ddd;}
+.w3c-errors .w3c-error .helpwanted{float: right;}
+.w3c-errors .w3c-error .ve p{ margin-bottom: 0.65em; text-align: justify;}
+.w3c-errors .w3c-error pre{ margin: 10px 0;background: #EAEBEE; line-height: 25px;}
+.w3c-errors .w3c-error code strong{ color: red; text-decoration: underline;}
+
+.w3c-validator h2.w3c-warning{color: #D23D24; font-size: 16px; background: none; text-decoration: none; border-bottom: 1px dotted #AAAA77;}
+ 
+.w3c-warnings {margin: 15px;}
+.w3c-warnings .w3c-warning{padding: 10px; border: 1px solid #ddd; border-bottom: none;}
+.w3c-warnings .w3c-warning.last{border: 1px solid #ddd;}
+.w3c-warnings .w3c-warning .helpwanted{float: right;}
+.w3c-warnings .w3c-warning .ve p{ margin-bottom: 0.65em; text-align: justify;}
+.w3c-warnings .w3c-warning pre{ margin: 10px 0;background: #EAEBEE; line-height: 25px;}
+.w3c-warnings .w3c-warning code strong{ color: red; text-decoration: underline;}
+
+/* CSS Validator */
+.w3c-errors tr, .w3c-warnings tr{line-height: 30px;}
+.w3c-errors th, .w3c-warnings th{white-space: nowrap; background: #ddd;}
+.w3c-errors th, .w3c-warnings th,
+.w3c-errors td, .w3c-warnings td{border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;}

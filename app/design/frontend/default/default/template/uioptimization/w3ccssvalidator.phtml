@@ -1,0 +1,104 @@
+<?php
+/**
+ * Diglin
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * 
+ *
+ * @category    Diglin
+ * @package     Diglin_UIOptimization
+ * @copyright   Copyright (c) 2011-2012 Diglin (http://www.diglin.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ ?>
+<?php
+/**
+ * $results is an object with the following attributes:
+ * string uri
+ * string checkedby
+ * string csslevel
+ * bool validity
+ * array errors of Services_W3C_HTMLValidator_Error objects
+ * 	- line
+ *  - errortype
+ *  - context
+ *  - property
+ *  - uri
+ *  - message
+ * 
+ * array warnings of Services_W3C_HTMLValidator_Warning objects
+ * 	- line
+ *  - uri
+ *  - message
+ *  
+ **/
+/*@var $block Rissip_UIOptimization_Block_W3Ccssvalidator */
+$block = $this;
+
+$results = $block->getValidatorResults();
+/*@var $results Services_W3C_CSSValidator_Response */
+if(count($results) > 0){
+	$class_valid = (count($results->errors) > 0 || count($results->warnings) > 0)?'invalid':'valid';
+?>
+<a href="javascript:void(0)" onclick="$('w3c-validator').style.display=$('w3c-validator').style.display==''?'none':''">[W3C CSS Validator]</a>
+<div id="w3c-validator" class="w3c-validator">
+<span><a name="validator" id="validator"></a></span>
+<h2 id="results" class="<?php echo $class_valid; ?>">
+<?php echo  (count($results->errors) > 0 || count($results->warnings) > 0)?$this->__('Errors or Warnings found while checking this document'):$this->__('This document was successfully checked');?>
+</h2>
+	<table id="w3c-summary" class="w3c-summary">
+		<tr><th><?php echo $block->__('Result:')?></th><td class="<?php echo $class_valid; ?>">
+		<?php
+		echo ((count($results->errors) > 0)? count($results->errors). ' Errors ' : '');
+		echo ((count($results->warnings) > 0)? count($results->warnings) . ' Warnings':'');
+		echo (count($results->errors) <= 0 && count($results->warnings) <= 0)?'Passed':'';
+		?>
+		</td></tr>
+		<tr><th><?php echo $block->__('Address:')?></th><td><?php echo $results->uri;?></td></tr>
+		<tr><th><?php echo $block->__('Checked by:')?></th><td><?php echo $results->checkedby;?></td></tr>
+		<tr><th><?php echo $block->__('CSS Level:')?></th><td><?php echo $results->csslevel;?></td></tr>
+	</table>
+	<script type="text/javascript">decorateTable('w3c-summary')</script>
+	<span><?php echo $this->__('Go to the <a href="#errors">errors</a>');?></span> - <span><?php echo $this->__('Go to the <a href="#warnings">warnings</a>');?></span>
+	
+<?php if(count($results->errors) > 0):?>
+	<span><a name="errors" id="errors"></a></span>
+	<h2 class="w3c-error w3c-total"><?php echo $this->__('Validation Output: %s error(s)', count($results->errors));?></h2>
+	<span class="shortcut"><?php echo $this->__('Go to the %stop%s','<a href="#" onclick="Effect.ScrollTo(\'validator\');return false;">','</a>');?></span>
+	<div class="clearer"></div>
+	<table id="w3c-errors" class="w3c-errors">
+		<?php foreach($results->errors as $error):?>
+		<tr class="w3c-error">
+			<th class="w3c-title-error"><?php echo $this->__('<em>Line %s</em>', $error->line); ?></th>
+			<td class="w3c-context-error"><?php echo $error->context;?></td>
+			<td class="w3c-message-error"><?php echo $this->__('Error Type %s - ', $error->errortype) . $error->message;?></td>
+		</tr>
+		<?php endforeach;?>
+	</table>
+	<script type="text/javascript">decorateList('w3c-errors', 'noRecursive')</script>
+<?php endif;?>
+
+<?php if(count($results->warnings) > 0):?>
+	<span><a name="warnings" id="warnings"></a></span>
+	<h2 class="w3c-error w3c-total"><?php echo $this->__('Validation Output: %s warning(s)', count($results->warnings));?></h2>
+	<span class="shortcut"><?php echo $this->__('Go to the %stop%s','<a href="#" onclick="Effect.ScrollTo(\'validator\');return false;">','</a>');?></span>
+	<div class="clearer"></div>
+	<table id="w3c-warnings" class="w3c-warnings">
+		<?php foreach($results->warnings as $warning):?>
+		<tr class="w3c-warning">
+			<th class="w3c-title-warning"><?php echo $this->__('<em>Line %s</em>', $warning->line); ?></th>
+			<td class="w3c-message-warning"><?php echo $warning->message;?></td>
+		</tr>
+		<?php endforeach;?>
+	</table>
+	<script type="text/javascript">decorateList('w3c-warnings', 'noRecursive')</script>
+<?php endif;?>
+<span class="shortcut"><?php echo $this->__('Go to the %stop%s','<a href="#" onclick="Effect.ScrollTo(\'validator\');return false;">','</a>');?></span>
+</div>
+<?php
+}

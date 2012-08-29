@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <diglin>
+            <label>Diglin</label>
+            <sort_order>400</sort_order>
+        </diglin>
+    </tabs>
+    
+    <sections>
+        <uioptimization translate="label" module="uioptimization">
+            <label>UI Optimization</label>
+            <tab>diglin</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>120</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <hint>
+                    <frontend_model>uioptimization/adminhtml_config_source_hint</frontend_model>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </hint>
+                <general>
+                    <label>General configuration</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>1</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <comment><![CDATA[Each compressed css/js files are updated each time their original files are updated. But if you want to save some resources (e.g. if you make lots of updates), you can force the regeneration of the compressed/minified js/css files periodically by enabling the option below. It will update the files each sunday at 2:00 by default. Cron works only if you have correctly configured the general cron of your Magento installation, see the <a href="#" onclick="javascript:window.open('http://www.magentocommerce.com/wiki/1_-_installation_and_configuration/how_to_setup_a_cron_job')" >wiki of Magento</a> to know how to do it.<br/>
+                                By activating it, it will deactivate the auto-update from the original files.]]></comment>    
+                        <fields>
+                            <cronupdate>
+                                <label>Update periodically the JS/CSS compressed files</label>
+                                <frontend_type>select</frontend_type>
+                                <source_model>adminhtml/system_config_source_yesno</source_model>
+                                <sort_order>10</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </cronupdate>
+                            <cron_schedule>
+                                <label>Cron Schedule</label>
+                                <frontend_type>text</frontend_type>
+                                <sort_order>20</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <comment><![CDATA[Provide here the schedule wished. It must respect the cron format e.g. 0 1 * * * for each day at 1:00.]]></comment>
+                            </cron_schedule>                            
+                        </fields>
+                </general>
+                <seo>
+                    <label>Search Engines Optimization</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled>
+                            <label>Enable Canonical URL (beta)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <trailingslash>
+                            <label>Force trailing slash to canonical URL's</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </trailingslash>
+                        <products>
+                            <label>Allow canonical URL's for products page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </products>
+                        <search>
+                            <label>Allow canonical URL's for search result pages</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </search>
+                        <cmshome>
+                            <label>Allow canonical URL's for the CMS homepage</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cmshome>
+                    </fields>
+                </seo>                
+                <csscompression>
+                    <label>CSS Compression / Optimization</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[This feature allows you to: <ul><li>- compress each CSS file of your frontend layout (if the includes are done through the method addCss or addItem into the layout xml files)</li><li>- save each compressed CSS and Secured CSS files into a different folder (/media/css and /media/css_secure).</li><li>- conserve the originals</li><li>- define how do you prefer to compress your CSS files (see options below and <a href="#" onclick="javascript:window.open('http://csstidy.sourceforge.net/')">CSSTidy</a> website), default values should be good for most of situtation</li><li>- clean existing compressed files manually, you just need to click on the button "Flush JavaScript/CSS Cache" at the top of this configuration page</li><li>- compatible with the existing Merge CSS files feature of Magento (fix SSL & relative path bugs from Magento)</li></ul>
+                    <br/><strong>IMPORTANT:</strong> the compression is done only once or each time that your originals are modified. It means if you change the configuration here, you have to flush manually the compressed CSS files. It take resources and time to regenerate the compressed files, I advise you to regenerate them when your website activity is low or by activating the General Configuration Cron update of this module.<br/><br/>
+                    For addtional improvements, you should activate gzip compression on server-side.]]></comment>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[If deactivated, the CSS files taken will be the original one, otherwise your compressed css files.]]></comment>                    
+                        </enabled>
+                        <type>
+                            <label>CSS Minify Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_csstypeminify</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[]]></comment>
+                        </type>
+                        <yui_config>
+                            <label>YUI Compressor Minify Config Options</label>
+                            <sort_order>12</sort_order>
+                            <frontend_model>uioptimization/adminhtml_config_source_heading</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </yui_config>
+                        <java_path>
+                            <label>Java Path</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[If empty, the default java path of your server environnement will be used (if defined!). Java version >= 1.4 required.]]></comment>
+                        </java_path>
+                        <googlemin_config>
+                            <label>Google Minify Config Options</label>
+                            <sort_order>20</sort_order>
+                            <frontend_model>uioptimization/adminhtml_config_source_heading</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </googlemin_config>
+                        <preserve_comments>
+                            <label>Preserve Comments</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </preserve_comments>
+                        <csstidy_config>
+                            <label>CSS Tidy Config Options</label>
+                            <sort_order>30</sort_order>
+                            <frontend_model>uioptimization/adminhtml_config_source_heading</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </csstidy_config>
+                        <template>
+                            <label>Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_template</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[See the <a href="#" onclick="javascript:window.open('http://csstidy.sourceforge.net/')">CSSTidy</a> website for more information about templates.]]></comment>
+                        </template>
+                        <custom_template>
+                            <label>Custom template</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[See the <a href="#" onclick="javascript:window.open('http://csstidy.sourceforge.net/')">CSSTidy</a> website for more information about templates.]]></comment>
+                        </custom_template>
+                        <remove_last_semicolon>
+                            <label>Remove last Semi-Colon</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </remove_last_semicolon>
+                        <remove_bslash>
+                            <label>Remove unnecessary backslashes</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </remove_bslash>
+                        <compress_colors>
+                            <label>Compress colors</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </compress_colors>
+                        <compress_font>
+                            <label>Compress Font Weight</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </compress_font>
+                        <lowercase_s>
+                            <label>Lowercase selectors</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </lowercase_s>
+                        <optimise_shorthands>
+                            <label>Optimise Shorthand</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_optishorthand</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </optimise_shorthands>
+                        <case_properties>
+                            <label>Case for properties</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_caseproperties</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </case_properties>
+                        <sort_properties>
+                            <label>Sort properties</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </sort_properties>
+                        <sort_selectors>
+                            <label>Sort selectors</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>No advised to enable in Magento!</comment>                    
+                        </sort_selectors>
+                        <merge_selectors>
+                            <label>Merge selectors</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_mergeselectors</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </merge_selectors>
+                        <discard_invalid_properties>
+                            <label>Discard invalid properties</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </discard_invalid_properties>
+                        <css_level>
+                            <label>Css Level (with discard invalid properties)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_csslevel</source_model>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </css_level>
+                        <preserve_css>
+                            <label>Preserve CSS</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </preserve_css>    
+                        <timestamp>
+                            <label>Add a timestamp to the file</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                        
+                        </timestamp>
+                    </fields>
+                </csscompression>
+                <jscompression>
+                    <label>Javascript Compression / Optimization</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[- JSMin and YUICompressor are the best Minify libraries suited by Magento.<br/>- Obfuscation may be resource overload on client side.<br/>- You can clean existing compressed files manually, you just need to click on the button "Flush JavaScript/CSS Cache" at the top of this configuration page<br/><br/>
+                    <strong>IMPORTANT:</strong> the compression is done only once or each time that your originals are modified. It means if you change the configuration here, you have to flush manually the compressed JS files.<br/>
+                    It take resources and time to regenerate the compressed files, I advise you to regenerate them when your website activity is low or by activating the General Configuration of this module.]]></comment>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[If deactivated, Javascript CSS files taken will be the original one, otherwise your compressed javascript files.]]></comment>                                        
+                        </enabled>
+                        <type>
+                            <label>JS Minify Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_jstypeminify</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Click on the link name to get more information about <a href="#" onclick="javascript:window.open('http://crockford.com/javascript/jsmin')">JSMin</a>, <a href="#" onclick="javascript:window.open('http://developer.yahoo.com/yui/compressor/')">YUICompressor</a>]]></comment>
+                        </type>
+                        <yui_config>
+                            <label>YUI Compressor Options</label>
+                            <sort_order>30</sort_order>
+                            <frontend_model>uioptimization/adminhtml_config_source_heading</frontend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </yui_config>
+                        <java_path>
+                            <label>Java Path</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[If empty, the default java path of your server environnement will be used (if defined!). Java version >= 1.4 required.]]></comment>
+                        </java_path>
+                        <minify_only>
+                            <label>Minify only</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Minify only, don't offuscate.]]></comment>
+                        </minify_only>
+                        <preserve_semic>
+                            <label>Preserve Semi Colon</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>33</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Preserve all semicolons. May be important to keep compatibiliy with some JS Framework.]]></comment>
+                        </preserve_semic>
+                        <disable_alloptimisation>
+                            <label>Disable all micro optimizations</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </disable_alloptimisation>
+                    </fields>                
+                </jscompression>
+                <w3chtmlvalidator>
+                    <label>W3C HTML Validator Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[For most of the values of this configuration, you can find information by visiting the <a href="#" onclick="javascript:window.open('http://validator.w3.org/docs/api.html')">W3C page</a> to understand the meaning.<br/>
+                    Please, be aware that this service won't work if you use it on a website not accessible by the Validator. You should install a <a href="#" onclick="javascript:window.open('http://validator.w3.org/docs/api.html')">local</a> one if you need to use it locally. <a href="#" onclick="javascript:window.open('http://habilis.net/validator-sac/')">Validator S.A.C.</a> for Os X 10.4 to 10.6 can help you easily to install a local one.<br/>
+                    it may display slowly your pages. Deactivate it when you don't need it.]]></comment>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Enable if "Yes" and if your IP is allowed (See Configuration > Avanced > Developer) ]]></comment>
+                        </enabled>
+                        <validator_uri>
+                            <label>Validator URI</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[By default it use the W3C one. But it's better to install yours in a private server, it's faster and you won't be blocked by the W3C after few validation. See the <a href="#" onclick="javascript:window.open('http://validator.w3.org/docs/api.html')">API doc</a>]]></comment>
+                        </validator_uri>
+                        <charset>
+                            <label>Charset encoding override</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_charset</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[By default the validator detects the charset of the document automatically.]]></comment>
+                        </charset>
+                        <fbc>
+                            <label>Fallback Charset</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[By default, it's true. It means if it's set to "Yes", the value of your configuration charset will be used as fallback in case of the charset can't be determined by the validator.]]></comment>
+                        </fbc>
+                        <doctype>
+                            <label>Document Type override</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_doctype</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[By default the validator detects the document type of the document automatically ]]></comment>
+                        </doctype>
+                        <fbd>
+                            <label>Fallback Doctype</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[By default, it's true. It means if it's set to "Yes", the value of your configuration doctype will be used as fallback in case of the doctype can't be determined by the validator.]]></comment>
+                        </fbd>
+                    </fields>
+                </w3chtmlvalidator>
+                <w3ccssvalidator>
+                    <label>W3C CSS Validator Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[For most of the values of this configuration, you can find information by visiting the <a href="#" onclick="javascript:window.open('http://jigsaw.w3.org/css-validator/manual.html#api')">W3C CSS API page</a> to understand the meaning.<br/>
+                    <strong>Please, be aware</strong> that this service won't work if you use it on a website not accessible by the Validator. Sadly, currently, no local validator exists.<br/>
+                    it may display slowly your pages. Deactivate it when you don't need it.]]></comment>
+                    <fields>
+                        <enabled>
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Enable if "Yes" and if your IP is allowed (See Configuration > Avanced > Developer) ]]></comment>
+                        </enabled>
+                        <lang>
+                            <label>Lang of the results</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_language</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </lang>
+                        <profile>
+                            <label>Profile to use for the validation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_profile</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </profile>
+                        <warning>
+                            <label>Warning level</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_warning</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </warning>
+                        <usermedium>
+                            <label>User Medium</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>uioptimization/config_source_usermedium</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </usermedium>
+                    </fields>
+                </w3ccssvalidator>
+            </groups>
+        </uioptimization>
+    </sections>
+</config>

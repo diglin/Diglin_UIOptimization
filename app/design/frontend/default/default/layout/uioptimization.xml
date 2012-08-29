@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Diglin
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * 
+ *
+ * @category    Diglin
+ * @package     Diglin_UIOptimization
+ * @copyright   Copyright (c) 2011-2012 Diglin (http://www.diglin.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<block type="page/html_head" name="head_url" as="head_url" template="uioptimization/canonicalurl.phtml" />
+			<action method="addCss" ifconfig="uioptimization/w3chtmlvalidator/enabled"><stylesheet>css/w3c-validator.css</stylesheet></action>
+			<action method="addCss" ifconfig="uioptimization/w3ccssvalidator/enabled"><stylesheet>css/w3c-validator.css</stylesheet></action>
+		</reference>
+		<reference name="before_body_end">
+			<block type="uioptimization/W3Chtmlvalidator" name="w3c_htmlvalidator" template="uioptimization/w3chtmlvalidator.phtml" />
+			<block type="uioptimization/W3Ccssvalidator" name="w3c_cssvalidator" template="uioptimization/w3ccssvalidator.phtml" />
+		</reference>
+	</default>
+
+<!--
+Remove Canonincal URL header from checkout pages
+-->
+
+	 <checkout_cart_index>
+		<reference name="head">	
+			<action method="unsetChild"><name>head_url</name></action>
+		</reference>
+	</checkout_cart_index>
+
+	<checkout_onepage_index>
+		<reference name="head">	
+			<action method="unsetChild"><name>head_url</name></action>
+		</reference>
+	</checkout_onepage_index>
+</layout>

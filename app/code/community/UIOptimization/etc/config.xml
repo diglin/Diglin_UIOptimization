@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Diglin_UIOptimization>
+            <version>1.3.0</version>
+        </Diglin_UIOptimization>
+    </modules>
+
+    <default>
+        <uioptimization>
+            <general>
+                <cron_schedule>0 2 * * 0</cron_schedule>
+            </general>
+            <w3chtmlvalidator>
+                <enabled>0</enabled>
+                <charset></charset>
+                <fbc>1</fbc>
+                <doctype></doctype>
+                <fbd>1</fbd>
+                <validator_uri>http://validator.w3.org/check</validator_uri>
+            </w3chtmlvalidator>
+            <w3ccssvalidator>
+                <enabled>0</enabled>
+                <lang>en</lang>
+                <profile>css21</profile>
+                <warning>1</warning>
+                <usermedium>all</usermedium>
+            </w3ccssvalidator>
+            <csscompression>
+                <enabled>0</enabled>
+                <type>csstidy</type>
+                <template>highest_compression</template>
+                <remove_last_semicolon>1</remove_last_semicolon>
+                <remove_bslash>1</remove_bslash>
+                <compress_colors>1</compress_colors>
+                <compress_font_weight>1</compress_font_weight>
+                <lowercase_s>0</lowercase_s>
+                <optimise_shorthands>1</optimise_shorthands>
+                <case_properties>1</case_properties>
+                <sort_properties>0</sort_properties>
+                <sort_selectors>0</sort_selectors>
+                <merge_selectors>2</merge_selectors>
+                <discard_invalid_properties>0</discard_invalid_properties>
+                <css_level>CSS2.1</css_level>
+                <preserve_css>0</preserve_css>    
+                <timestamp>1</timestamp>
+            </csscompression>
+            <jscompression>
+                <enabled>0</enabled>
+                <type>jsmin</type>
+                <preserve_semic>1</preserve_semic>
+            </jscompression>
+            <seo>
+                <enabled>0</enabled>
+                <trailingslash>1</trailingslash>
+                <products>1</products>
+                <search>1</search>
+                <cmshome>1</cmshome>
+            </seo>
+        </uioptimization>
+    </default>
+    
+    <global>
+        <blocks>
+            <uioptimization>
+                <class>Diglin_UIOptimization_Block</class>
+            </uioptimization>
+            <page>
+                <rewrite>
+                    <html_head>Diglin_UIOptimization_Block_Optimize_Head</html_head>
+                </rewrite>
+            </page>
+        </blocks>
+        <models>
+            <uioptimization>
+                <class>Diglin_UIOptimization_Model</class>
+            </uioptimization>
+            <core>
+                <rewrite>
+                    <design_package>Diglin_UIOptimization_Model_Overwrite_Design_Package</design_package>
+                </rewrite>
+            </core>
+        </models>
+        <helpers>
+            <uioptimization>
+                <class>Diglin_UIOptimization_Helper</class>
+            </uioptimization>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <uioptimization module="Diglin_UIOptimization">
+                    <file>uioptimization.xml</file>
+                </uioptimization>
+            </updates>
+        </layout>
+    </frontend>
+    
+    <crontab>
+        <jobs>
+            <uioptimization_media_regeneration_all><!-- Every Sunday at 2:00 AM -->
+                <!-- schedule><cron_expr>0 2 * * 0</cron_expr></schedule-->
+                <schedule><config_path>uioptimization/general/cron_schedule</config_path></schedule>
+                <run><model>uioptimization/observer::regenerateMediaFiles</model></run>
+            </uioptimization_media_regeneration_all>
+        </jobs>
+    </crontab>
+</config>
