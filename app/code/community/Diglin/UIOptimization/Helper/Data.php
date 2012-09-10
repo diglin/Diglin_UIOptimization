@@ -19,7 +19,7 @@ class Diglin_UIOptimization_Helper_Data extends Mage_Core_Helper_Abstract
 {
     /**
      * Retreive some basic information depending on the type of file: original path, destination path, type, name, static
-     * 
+     *
      * @param string $name
      * @param string $type
      * @param bool $static
@@ -29,23 +29,24 @@ class Diglin_UIOptimization_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $info = array();
         $designPackage = Mage::getDesign();
-        
+
         $orgname = $name;
         if(!$static){
             $info['orgskin_path'] = $designPackage->getFilename ( $orgname, array ('_type' => 'skin' ) );
         }else{
             $info['orgskin_path'] = Mage::getBaseDir() . DS . 'js'. DS . $name;
         }
-        
+
         $orgpath = explode ( DS, $info['orgskin_path'] );
         if (count ( $orgpath ) > 1 && !$static) {
             // Get the theme of the original file
             $info['theme_name'] = $orgpath [count ( $orgpath ) - (count ( explode ( '/', $orgname ) ) + 1)];
         }
         $suffixFilename = (Mage::app()->getStore()->isCurrentlySecure())?'-ssl':'';
+        $suffixFilename.= '_'.Mage::app()->getStore()->getId();
         $name = substr ( $name, 0, strpos($name, '.' . $type) );
         $name = $name . $suffixFilename .'_cp.'.$type;
-        
+
         $file_path = explode('/', $name);
         if(count($file_path) > 1){
             $name = array_pop($file_path);
@@ -58,30 +59,30 @@ class Diglin_UIOptimization_Helper_Data extends Mage_Core_Helper_Abstract
         $info['new_name'] = $name;
         $info['type'] = $type;
         $info['static'] = $static;
-        
+
         $targetDir = $this->initMergerDir ( $type );
         if (! $targetDir) {
             $info['success'] = false;
             return $info;
         }
-        
+
         if(!$static){
             $info['targetPath'] = $targetDir . DS . 'skin' . DS . $info['theme_name'] . DS . $info['file_path'];
         }else{
             $info['targetPath'] = $targetDir . DS . $info['file_path'];
         }
         $info['targetPathFile']  = $info['targetPath'] . DS . $name;
-         
+
         if(!file_exists($info['targetPath'])){
             $ioFile = new Diglin_Io_File();
             $ioFile->mkdir($info['targetPath'], 0755, true);
         }
-        
+
         return $info;
     }
     /**
      * Provide the path URL of the filesystem for js or css files compressed or not
-     * 
+     *
      * @param array $info
      * @param string|array $mergeCallback
      * @return string
@@ -105,7 +106,7 @@ class Diglin_UIOptimization_Helper_Data extends Mage_Core_Helper_Abstract
             }
         }
     }
-    
+
     /**
      * Make sure merger dir exists and writeable
      * Also can clean it up
@@ -131,10 +132,10 @@ class Diglin_UIOptimization_Helper_Data extends Mage_Core_Helper_Abstract
         }
         return false;
     }
-    
+
     /**
      * Add trailing slash if necessary
-     * 
+     *
      * @param string $url
      */
     public function getTrailingSlash ($url)
