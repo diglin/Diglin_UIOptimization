@@ -31,20 +31,27 @@ This feature is implemented in this module too, to help you to have less as poss
 
 ## Documentation:
 
+### Via Magento Connect
 - You can install the current stable version via [MagentoConnect](http://www.magentocommerce.com/magento-connect/js-css-compression-and-minify-user-interface-optimization.html)
-- Or you can copy the files from the folders of this repository to the same folders of your installation
+
+### Via modman
+- Install [modman](https://github.com/colinmollenhour/modman)
+- Use the command from your Magento installation folder: `modman clone https://github.com/diglin/Diglin_UIOptimization.git`
+
+### Manually
+- You can copy the files from the folders of this repository to the same folders of your installation
 
 ### Optionaly
 
 - For those who use the CommerceBug module, contact me to give you the scripts for it. The script for CommerceBug display the W3C validator for HTML and CSS.
 
-### Configuration
+## Configuration
 
 Follow the instructions in the configuration page
 In case of Access Denied in the backend: clear your cache, logout/login. In case, it still doesn't work, save again the user role in System > Permissions > Roles.
 This module is not compatible with Fooman Speedster and Yoast Canonical Url modules. Deactivate them before to use this module by editing the app/etc/modules/MODULE_TO_DEACTIVATE.xml of the module and set enable to false.
 
-### Deinstall
+## Deinstall
 
 - If you used MagentoConnect, you may use the deinstall process of the Magento Connect Backend page view of your Magento installation.
 - Otherwise remove the files following the hierarchy of the folders of this repository
