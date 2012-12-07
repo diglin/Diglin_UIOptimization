@@ -1,6 +1,6 @@
-src/app/code/community/Diglin/UIOptimization app/code/community/Diglin/UIOptimization
-src/app/design/frontend/default/default/layout/uioptimization.xml app/design/frontend/default/default/layout/uioptimization.xml
-src/app/design/frontend/default/default/template/uioptimization app/design/frontend/default/default/template/uioptimization
-src/app/etc/modules/Diglin_UIOptimization.xml app/etc/modules/Diglin_UIOptimization.xml
-src/lib/Diglin lib/Diglin
-src/skin/frontend/default/default/css/w3c-validator.css skin/frontend/default/default/css/w3c-validator.css
+src/app/code/community/Diglin/UIOptimization                    app/code/community/Diglin/UIOptimization
+src/app/design/frontend/base/default/layout/uioptimization.xml  app/design/frontend/base/default/layout/uioptimization.xml
+src/app/design/frontend/base/default/template/uioptimization    app/design/frontend/base/default/template/uioptimization
+src/app/etc/modules/Diglin_UIOptimization.xml                   app/etc/modules/Diglin_UIOptimization.xml
+src/lib/Diglin                                                  lib/Diglin
+src/skin/frontend/base/default/css/w3c-validator.css            skin/frontend/base/default/css/w3c-validator.css
