@@ -2,5 +2,5 @@ src/app/code/community/Diglin/UIOptimization                    app/code/communi
 src/app/design/frontend/base/default/layout/uioptimization.xml  app/design/frontend/base/default/layout/uioptimization.xml
 src/app/design/frontend/base/default/template/uioptimization    app/design/frontend/base/default/template/uioptimization
 src/app/etc/modules/Diglin_UIOptimization.xml                   app/etc/modules/Diglin_UIOptimization.xml
-src/lib/Diglin                                                  lib/Diglin
+src/lib/*                                                       lib/
 src/skin/frontend/base/default/css/w3c-validator.css            skin/frontend/base/default/css/w3c-validator.css
