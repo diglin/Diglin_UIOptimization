@@ -106,7 +106,7 @@ class Diglin_UIOptimization_Block_Optimize_Head extends Mage_Page_Block_Html_Hea
             $minifier = 'Diglin_Minify_YUICompressor';
             $method = 'minifyCss';
             // init Minify class with YUI Compressor
-            Diglin_Minify_YUICompressor::$jarFile = Mage::getBaseDir('lib') . DS . 'Diglin' . DS . 'yuicompressor-2.4.6' . DS . 'build' .  DS . 'yuicompressor-2.4.6.jar' ;
+            Diglin_Minify_YUICompressor::$jarFile = Mage::getBaseDir('lib') . DS . 'Diglin' . DS . 'yuicompressor' . DS . 'yuicompressor.jar' ;
             Diglin_Minify_YUICompressor::$tempDir = Mage::getBaseDir('tmp');
             if(strlen($config['java_path']) > 0){
                 Diglin_Minify_YUICompressor::$javaExecutable = $config['java_path'];
@@ -206,7 +206,7 @@ class Diglin_UIOptimization_Block_Optimize_Head extends Mage_Page_Block_Html_Hea
                 case 'yuicompressor':
                     $minifier = 'Diglin_Minify_YUICompressor';
                     $method = 'minifyJs';
-                    Diglin_Minify_YUICompressor::$jarFile = Mage::getBaseDir('lib') . DS . 'Diglin' . DS .'yuicompressor-2.4.6' . DS . 'build' .  DS . 'yuicompressor-2.4.6.jar' ;
+                    Diglin_Minify_YUICompressor::$jarFile = Mage::getBaseDir('lib') . DS . 'Diglin' . DS .'yuicompressor' . DS . 'yuicompressor.jar' ;
                     Diglin_Minify_YUICompressor::$tempDir = Mage::getBaseDir('tmp');
                     if(strlen($config['java_path']) > 0){
                         Diglin_Minify_YUICompressor::$javaExecutable = $config['java_path'];
