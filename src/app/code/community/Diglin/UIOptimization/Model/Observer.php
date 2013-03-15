@@ -43,7 +43,7 @@ class Diglin_UIOptimization_Model_Observer
                     $curl = new Zend_Http_Client_Adapter_Curl();
                     $curl->setCurlOption(CURLOPT_SSL_VERIFYPEER, false);
                     $curl->setCurlOption(CURLOPT_SSL_VERIFYHOST, 1);
-                    $curl->connect($url->getHost(), $url->getPort(), Mage_Core_Model_Store::isCurrentlySecure());
+                    $curl->connect($url->getHost(), $url->getPort(), Mage::app()->getStore($id)->isCurrentlySecure());
                     $curl->write(Zend_Http_Client::GET, $url);
                     $curl->close();
                     Mage::log('[Diglin_UIOptimization_Model_Observer] Update media js/css content for the different stores', ZEND_LOG::DEBUG);
