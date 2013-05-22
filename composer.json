@@ -1,0 +1,16 @@
+{
+    "name":"diglin/diglin_uioptimization",
+    "type":"magento-module",
+    "license":"OSL-3.0",
+    "homepage":"https://github.com/diglin/Diglin_UIOptimization",
+    "description":"Minify and optimize CSS and JS files. Configurable library to suit your installation.",
+    "authors":[
+        {
+            "name":"Sylvain Rayé",
+            "email":"{firstname}.{lastname}@diglin.com"
+        }
+    ],
+    "require":{
+        "magento-hackathon/magento-composer-installer":"*"
+    }
+}
