@@ -12,10 +12,10 @@
  *
  * @category    Diglin
  * @package     Diglin_UIOptimization
- * @copyright   Copyright (c) 2011-2012 Diglin (http://www.diglin.com)
+ * @copyright   Copyright (c) 2011-2013 Diglin (http://www.diglin.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class Diglin_UIOptimization_Model_Observer
+class Diglin_UIOptimization_Model_Cron
 {
     /**
      * Delete content of media/js and media/css folders to refresh with updated compressed/minified js/css content
@@ -25,8 +25,8 @@ class Diglin_UIOptimization_Model_Observer
      */
     public function regenerateMediaFiles ($observer)
     {
-        if (Mage::getStoreConfigFlag('uioptimization/general/cronupdate') &&
-         (Mage::getStoreConfigFlag('uioptimization/csscompression/enabled') || Mage::getStoreConfigFlag('uioptimization/jscompression/enabled'))) {
+        if (Mage::getStoreConfigFlag('uioptimization/general/cronupdate') 
+            && (Mage::getStoreConfigFlag('uioptimization/csscompression/enabled') || Mage::getStoreConfigFlag('uioptimization/jscompression/enabled'))) {
             // Clean up media/css and media/js folders and recreate the folders if necessary
             try {
                 Mage::getModel('core/design_package')->cleanMergedJsCss();
@@ -46,7 +46,7 @@ class Diglin_UIOptimization_Model_Observer
                     $curl->connect($url->getHost(), $url->getPort(), Mage_Core_Model_Store::isCurrentlySecure());
                     $curl->write(Zend_Http_Client::GET, $url);
                     $curl->close();
-                    Mage::log('[Diglin_UIOptimization_Model_Observer] Update media js/css content for the different stores', ZEND_LOG::DEBUG);
+                    Mage::log('[Diglin_UIOptimization_Model_Cron] Update media js/css content for the different stores', ZEND_LOG::DEBUG);
                 } catch (Exception $e) {
                     Mage::logException($e);
                     return;
