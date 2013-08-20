@@ -9,6 +9,7 @@
     <default>
         <uioptimization>
             <general>
+            	<cronupdate>0</cronupdate>
                 <cron_schedule>0 2 * * 0</cron_schedule>
             </general>
             <w3chtmlvalidator>
@@ -103,7 +104,7 @@
             <uioptimization_media_regeneration_all><!-- Every Sunday at 2:00 AM -->
                 <!-- schedule><cron_expr>0 2 * * 0</cron_expr></schedule-->
                 <schedule><config_path>uioptimization/general/cron_schedule</config_path></schedule>
-                <run><model>uioptimization/observer::regenerateMediaFiles</model></run>
+                <run><model>uioptimization/cron::regenerateMediaFiles</model></run>
             </uioptimization_media_regeneration_all>
         </jobs>
     </crontab>
