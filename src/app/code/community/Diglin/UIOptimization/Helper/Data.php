@@ -95,13 +95,13 @@ class Diglin_UIOptimization_Helper_Data extends Mage_Core_Helper_Abstract
             return ($mergeCallback ? $designPackage->getFilename($info['original_name'], array('_type' => 'skin')) : $designPackage->getSkinUrl($info['original_name'], array()));
         } else {
             if (! $info['static']) {
-                return ($mergeCallback ? $info['targetPathFile'] : Mage::getBaseUrl('media') . $info['type'] . DS . 'skin' . DS . $info['theme_name'] . DS . $info['file_path'] . DS . $info['new_name']);
+                return ($mergeCallback ? $info['targetPathFile'] : Mage::getBaseUrl('media') . $info['type'] . '/skin/' . $info['theme_name'] . '/' . $info['file_path'] . '/' . $info['new_name']);
                  // Static Items
             } else {
                 if (! $info['result'] && $info['static']) { // Default folder
                     return $mergeCallback ? Mage::getBaseDir() . DS . 'js' . DS . $info['original_name'] : Mage::getBaseUrl('js') . $info['original_name'];
                 } else {
-                    return $mergeCallback ? $info['targetPathFile'] : Mage::getBaseUrl('media') . $info['type'] . DS . $info['file_path'] . DS . $info['new_name'];
+                    return $mergeCallback ? $info['targetPathFile'] : Mage::getBaseUrl('media') . $info['type'] . '/' . $info['file_path'] . '/' . $info['new_name'];
                 }
             }
         }
