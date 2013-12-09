@@ -164,6 +164,7 @@ class Diglin_UIOptimization_Block_Optimize_Head extends Mage_Page_Block_Html_Hea
                     'quiet' => true,// quiet will allow to get the content as array mixed null, or, if the 'quiet' option is set to true, an array with keys "success" (bool), "statusCode" (int), "content" (string), and "headers" (array).
                     'files' => array($info['orgskin_path']),
                     'encodeMethod' => '',
+                    'rewriteCssUris' =>  false,
                     'minifiers' => array(Diglin_Minify::TYPE_CSS => array($minifier, $method))
                 );
                 $results = Diglin_Minify::serve('Files', $options);
