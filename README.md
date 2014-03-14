@@ -11,6 +11,17 @@ It is a Magento module which allows you to optimize and minify your css and js f
 - Update the optimized files when the original are modified automatically or periodically (sunday at 2:00 or configurable via Magento cron). Generate a unique file to force browser refreshing if the file has been modified.
 - Compatible with https website and relative urls. (it fixes a bug in Magento prior to 1.5.1)
 
+## Roadmap
+
+- Remove old incompatible library(ies) with CSS2
+- Find library(ies) compatible with CSS3
+- Think to simplify the configuration page
+- Refactor the code to make more cleaner with less rewrites as much as possible
+- Implement the philosophy of Lesti Gordon: https://github.com/GordonLesti/Lesti_Merge & http://fishpig.co.uk/blog/why-you-shouldnt-merge-javascript-in-magento.html
+- Remove integrated W3C validation for HTML / CSS (too complicated to use and probably not used)
+- Include Ga.js as an option to improve poorly serving file from Google.
+- Support Less / Sass
+
 ## Canonical URL
 
 Inspired by the module from Yoast, this feature allows you to create canonical urls of your catalog (products, categories, search products and cms pages). Please visit the website of Yoast for more information: http://yoast.com/articles/magento-seo/
