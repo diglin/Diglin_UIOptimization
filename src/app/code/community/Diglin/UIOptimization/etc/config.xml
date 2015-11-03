@@ -45,6 +45,7 @@
                 <css_level>CSS2.1</css_level>
                 <preserve_css>0</preserve_css>    
                 <timestamp>1</timestamp>
+                <preserve_comments>0</preserve_comments>
             </csscompression>
             <jscompression>
                 <enabled>0</enabled>
