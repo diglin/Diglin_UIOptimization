@@ -48,13 +48,11 @@ class Diglin_Io_File extends Varien_Io_File{
 
         if (file_exists($filename)) {
             if (!is_writeable($filename)) {
-                printf('File %s don\'t writeable', $filename);
-                return false;
+                throw new Mage_Core_Exception('File %s don\'t writeable', $filename);
             }
         } else {
             if (!is_writable(dirname($filename))) {
-                printf('Folder %s don\'t writeable', dirname($filename));
-                return false;
+                throw new Mage_Core_Exception('Folder %s don\'t writeable', $filename);
             }
         }
         if ($srcIsFile) {
